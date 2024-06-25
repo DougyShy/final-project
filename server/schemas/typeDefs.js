@@ -1,7 +1,7 @@
 const typeDefs = `
   type User {
     _id: ID!
-    name: String!
+    email: String!
   }
 
   type Matchup {
@@ -14,7 +14,6 @@ const typeDefs = `
 
   type Query {
     user: [User]
-    matchups(_id: String): [Matchup]
   }
 
   type Mutation {

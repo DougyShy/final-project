@@ -5,10 +5,10 @@ const resolvers = {
     user: async () => {
       return User.find({});
     },
-    matchups: async (parent, { _id }) => {
+    /*matchups: async (parent, { _id }) => {
       const params = _id ? { _id } : {};
       return Matchup.find(params);
-    },
+    },*/
   },
   Mutation: {
     createMatchup: async (parent, args) => {

@@ -1,13 +1,18 @@
 const { Schema, model } = require('mongoose');
 
-const techSchema = new Schema({
+const bookSchema = new Schema({
   title: {
     type: String,
     required: true,
     unique: true, // does this have to be true? Can't multiple authors have books titled the same??
   },
+  author: {
+    type: String,
+    required: true,
+    unique: false,
+  },
 });
 
-const User = model('Tech', techSchema);
+const Book = model('Book', bookSchema);
 
-module.exports = Tech;
+module.exports = Book;
