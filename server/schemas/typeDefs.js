@@ -1,5 +1,5 @@
 const typeDefs = `
-  type Tech {
+  type User {
     _id: ID!
     name: String!
   }
@@ -13,7 +13,7 @@ const typeDefs = `
   }
 
   type Query {
-    tech: [Tech]
+    user: [User]
     matchups(_id: String): [Matchup]
   }
 

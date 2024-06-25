@@ -7,7 +7,7 @@ import { CREATE_MATCHUP } from '../utils/mutations';
 const Matchup = () => {
   const { loading, data } = useQuery(QUERY_TECH);
 
-  const techList = data?.tech || [];
+  const techList = data?.user || [];
 
   const [formData, setFormData] = useState({
     tech1: 'JavaScript',
@@ -51,22 +51,22 @@ const Matchup = () => {
           <div>Loading...</div>
         ) : (
           <form onSubmit={handleFormSubmit}>
-            <label>Tech 1: </label>
+            <label>User 1: </label>
             <select name="tech1" onChange={handleInputChange}>
-              {techList.map((tech) => {
+              {techList.map((user) => {
                 return (
-                  <option key={tech._id} value={tech.name}>
-                    {tech.name}
+                  <option key={user._id} value={user.name}>
+                    {user.name}
                   </option>
                 );
               })}
             </select>
-            <label>Tech 2: </label>
+            <label>User 2: </label>
             <select name="tech2" onChange={handleInputChange}>
-              {techList.map((tech) => {
+              {techList.map((user) => {
                 return (
-                  <option key={tech._id} value={tech.name}>
-                    {tech.name}
+                  <option key={user._id} value={user.name}>
+                    {user.name}
                   </option>
                 );
               })}
