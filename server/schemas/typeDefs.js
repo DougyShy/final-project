@@ -4,22 +4,21 @@ const typeDefs = `
     email: String!
   }
 
-  type Matchup {
+  type Book {
     _id: ID!
-    tech1: String!
-    tech2: String!
-    tech1_votes: Int
-    tech2_votes: Int
+    title: String!
+    author: String!
   }
 
   type Query {
     user: [User]
+    book: [Book]
   }
-
-  type Mutation {
+`
+  /*type Mutation {
     createMatchup(tech1: String!, tech2: String!): Matchup
     createVote(_id: String!, techNum: Int!): Matchup
   }
-`;
+`;*/
 
 module.exports = typeDefs;

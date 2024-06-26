@@ -1,4 +1,4 @@
-const { User, Matchup } = require('../models');
+const { User, Book } = require('../models');
 
 const resolvers = {
   Query: {
@@ -13,8 +13,8 @@ const resolvers = {
       return Matchup.find(params);
     },*/
   },
-  Mutation: {
-    createMatchup: async (parent, args) => {
+  /*Mutation: {
+    /*createMatchup: async (parent, args) => {
       const matchup = await Matchup.create(args);
       return matchup;
     },
@@ -25,8 +25,8 @@ const resolvers = {
         { new: true }
       );
       return vote;
-    },
-  },
+    }
+  }*/
 };
 
 module.exports = resolvers;
