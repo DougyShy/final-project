@@ -12,7 +12,8 @@ const Home = () => {
   return (
     <div className="card bg-white card-rounded w-50">
       <div className="card-header bg-dark text-center">
-        <h1>Welcome to User Matchup!</h1>
+      <button className="ui button color:blue">Follow</button>
+        <h1>Welcome to User Teammate!</h1>
       </div>
       <div className="card-body m-5">
         <h2>Here is a list of matchups you can vote on:</h2>
