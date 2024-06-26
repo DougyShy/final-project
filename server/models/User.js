@@ -6,11 +6,14 @@ const userSchema = new Schema({
     required: true,
     unique: true, // does this have to be true? Can't multiple authors have books titled the same??
   },
+  // need to incorporate password setup here??
 });
 
 const User = model('User', userSchema);
 
 module.exports = User;
+
+// not sure how to incorporate this with REACT but keeping for quick reference
 
 /*const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
