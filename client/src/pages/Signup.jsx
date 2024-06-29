@@ -1,28 +1,36 @@
 import { useState } from 'react';
 import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
 
-const Login = () => {
+import Auth from '../utils/auth';
+import { useMutation } from '@apollo/client';
+//import { ADD_USER } from '../utils/mutations';
+
+const Signup = () => {
   const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
   const handleSubmit = () => {
     // Perform validation and submission logic here
-    if (username === '' || password === '') {
-      setError('Please enter both username and password.');
+    if (username === '' || email === '' || password === '') {
+      setError('Please fill in all fields.');
     } else {
       // Submit the form (e.g., make an API call)
       console.log('Username:', username);
+      console.log('Email:', email);
       console.log('Password:', password);
       setError(''); // Clear error if any
     }
   };
 
+
+
   return (
     <Grid textAlign="center" style={{ height: '100vh' }} verticalAlign="middle">
       <Grid.Column style={{ maxWidth: 450 }}>
         <Header as="h2" color="teal" textAlign="center">
-          Log-in to your account
+          Sign up for a new account
         </Header>
         <Form size="large" onSubmit={handleSubmit}>
           <Segment stacked>
@@ -36,6 +44,15 @@ const Login = () => {
             />
             <Form.Input
               fluid
+              icon="mail"
+              iconPosition="left"
+              placeholder="Email"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <Form.Input
+              fluid
               icon="lock"
               iconPosition="left"
               placeholder="Password"
@@ -45,7 +62,7 @@ const Login = () => {
             />
 
             <Button color="teal" fluid size="large">
-              Login
+              Sign Up
             </Button>
           </Segment>
         </Form>
@@ -60,36 +77,4 @@ const Login = () => {
   );
 };
 
-export default Login;
-
-
-/*import { FormInput, FormCheckbox, Form } from 'semantic-ui-react'
-
-const Login = () => {
-  return (
-    <Form>
-      <FormInput
-        error={{ content: 'Please enter your email address', pointing: 'below' }}
-        fluid
-        label='email'
-        placeholder='email@domain.com'
-        id='form-input-email'
-      />
-      <FormInput
-        error='Please enter your password'
-        fluid
-        label='password'
-        placeholder='valid password here'
-      />
-      <FormCheckbox
-        label='I agree to the Terms and Conditions'
-        error={{
-          content: 'You must agree to the terms and conditions',
-          pointing: 'left',
-        }}
-      />
-    </Form>
-  );
-};
-
-export default Login;*/
+export default Signup;

@@ -1,7 +1,7 @@
-//import { Link } from 'react-router-dom';
-//import Auth from '../../utils/auth';
+import { Link } from 'react-router-dom';
+import Auth from '../../utils/auth';
 
-import { Container, GridRow, GridColumn, Grid } from 'semantic-ui-react'
+import { Image, GridRow, GridColumn, Grid } from 'semantic-ui-react'
 import React from 'react'
 import {
   BreadcrumbSection,
@@ -10,34 +10,37 @@ import {
 } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css'
 
-const BreadcrumbExample = () => (
-  <Breadcrumb>
-    <BreadcrumbSection link>Home</BreadcrumbSection>
-    <BreadcrumbDivider />
-    <BreadcrumbSection link>Cart</BreadcrumbSection>
-    <BreadcrumbDivider />
-    <BreadcrumbSection active>Login</BreadcrumbSection>
-  </Breadcrumb>
-)
-
 const Header = () => {
+  const logout = (event) => {
+    event.preventDefault();
+    Auth.logout();
+  }
 
   return (
-    <Container>
-    <Grid>
+    <Grid columns={2} padded={'false'}>
       <GridRow>
-        <GridColumn width={8}>
-          <div>HELLO WORLD</div>
-        </GridColumn>
-        <GridColumn width={8} textAlign={'right'}>
-          <div className="aligh-content-right">
-          <div className="ui breadcrumb"><a className="section" href="/login">Home</a><div className="divider">/</div><a className="section">Store</a><div className="divider">/</div><div className="active section">T-Shirt</div></div>
-          </div>
-        </GridColumn>
+        <Grid.Column width={8} floated={'left'}>
+          <div><img src="/src/assets/images/bookstore-icon.png" /></div>
+        </Grid.Column>
+        {Auth.loggedIn() ? (
+          <>
+            <GridColumn width={8} textAlign={'right'}>
+              <div className="aligh-content-right">
+                <div className="ui breadcrumb"><a className="logout" href="/logout" onClick={logout}></a></div>
+              </div>
+            </GridColumn>
+          </>
+        ) : (
+          <>
+            <GridColumn width={8} textAlign={'right'}>
+              <div className="aligh-content-right">
+                <div className="ui breadcrumb"><a className="login" href="/login">login</a><div className="divider">|</div><a className="signup" href="/signup">sign up</a></div>
+              </div>
+            </GridColumn>
+          </>
+        )}
       </GridRow>
     </Grid>
-    </Container>
-
   );
 };
 
