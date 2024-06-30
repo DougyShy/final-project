@@ -6,16 +6,24 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
-  const handleSubmit = () => {
-    // Perform validation and submission logic here
-    if (username === '' || password === '') {
-      setError('Please enter both username and password.');
-    } else {
-      // Submit the form (e.g., make an API call)
-      console.log('Username:', username);
-      console.log('Password:', password);
-      setError(''); // Clear error if any
+  // submit form
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const { data } = await login({
+        variables: { email, password },
+      });
+
+      Auth.login(data.login.token);
+    } catch (e) {
+      console.error(e);
     }
+
+    // clear form values
+    setFormState({
+      email: '',
+      password: '',
+    });
   };
 
   return (

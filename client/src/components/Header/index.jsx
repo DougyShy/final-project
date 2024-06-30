@@ -21,7 +21,7 @@ const Header = () => {
           <>
             <GridColumn width={8} textAlign={'right'}>
               <div className="aligh-content-right">
-              <div className="ui breadcrumb"><a className="logout" onClick={logout} href="/">log out</a></div>
+              <div className="ui breadcrumb"><a className="cart" href="/cart">cart</a><div className="divider">|</div><a className="logout" onClick={logout} href="/">log out</a></div>
               </div>
             </GridColumn>
           </>
