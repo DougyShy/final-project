@@ -4,13 +4,12 @@ const typeDefs = `
     username: String
     email: String
     password: String
-    cart: [Book]!
   }
 
   type Book {
     _id: ID!
-    title: String
-    author: [String]
+    title: String!
+    author: String!
   }
 
   type Auth {
@@ -21,7 +20,9 @@ const typeDefs = `
   type Query {
     users: [User]
     user(username: String!): User
-    book: [Book]
+    books: [Book]
+    book(_id: ID!): Book
+
   }
 
   type Mutation {

@@ -3,11 +3,6 @@ import Auth from '../../utils/auth';
 
 import { Image, GridRow, GridColumn, Grid } from 'semantic-ui-react'
 import React from 'react'
-import {
-  BreadcrumbSection,
-  BreadcrumbDivider,
-  Breadcrumb,
-} from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css'
 
 const Header = () => {
@@ -17,7 +12,7 @@ const Header = () => {
   }
 
   return (
-    <Grid columns={2} padded={'false'}>
+    <Grid columns={2} padded={false}>
       <GridRow>
         <Grid.Column width={8} floated={'left'}>
           <div><img src="/src/assets/images/bookstore-icon.png" /></div>
@@ -26,7 +21,7 @@ const Header = () => {
           <>
             <GridColumn width={8} textAlign={'right'}>
               <div className="aligh-content-right">
-                <div className="ui breadcrumb"><a className="logout" href="/logout" onClick={logout}></a></div>
+              <div className="ui breadcrumb"><a className="logout" onClick={logout} href="/">log out</a></div>
               </div>
             </GridColumn>
           </>

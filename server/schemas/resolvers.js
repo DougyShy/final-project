@@ -3,11 +3,18 @@ const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers = {
   Query: {
-    user: async () => {
-      return User.find({});
+    users: async () => {
+      return User.find();
     },
-    book: async () => {
-      return Book.find({});
+    user: async (parent, { username }) => {
+      return User.findOne({ username });
+    },
+    // This would be similar to adding a comment to a book?
+    /*thought: async (parent, { bookId }) => {
+      return Book.findOne({ _id: bookId });
+    },*/
+    books: async (parent, { thoughtId }) => {
+      return Book.find();
     },
   },
   

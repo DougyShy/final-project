@@ -3,28 +3,28 @@ import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react'
 
 import Auth from '../utils/auth';
 import { useMutation } from '@apollo/client';
-//import { ADD_USER } from '../utils/mutations';
+import { ADD_USER } from '../utils/mutations';
 
 const Signup = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
 
-  const handleSubmit = () => {
-    // Perform validation and submission logic here
-    if (username === '' || email === '' || password === '') {
-      setError('Please fill in all fields.');
-    } else {
-      // Submit the form (e.g., make an API call)
-      console.log('Username:', username);
-      console.log('Email:', email);
-      console.log('Password:', password);
-      setError(''); // Clear error if any
+  const [addUser, { error, data }] = useMutation(ADD_USER);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      const { data } = await addUser({
+        variables: { username, email, password },
+      });
+
+      Auth.login(data.addUser.token);
+    } catch (e) {
+      console.error(e);
     }
   };
-
-
 
   return (
     <Grid textAlign="center" style={{ height: '100vh' }} verticalAlign="middle">

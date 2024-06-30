@@ -14,7 +14,7 @@ const Footer = () => {
           >
             ❤️
           </span>{' '}
-          by Lesley, Ethan, and Doug. Hawk Tuah!!
+          by Lesley, Ethan, and Doug.
         </h4>
       </div>
     </footer>
