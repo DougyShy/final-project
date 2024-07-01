@@ -15,7 +15,11 @@ const Header = () => {
     <Grid columns={2} padded={false}>
       <GridRow>
         <Grid.Column width={8} floated={'left'}>
-          <div><img src="/src/assets/images/bookstore-icon.png" /></div>
+        <a href="/">
+          <div>
+            <img src="/src/assets/images/bookstore-icon.png" alt="Bookstore Icon" />
+          </div>
+        </a>
         </Grid.Column>
         {Auth.loggedIn() ? (
           <>
