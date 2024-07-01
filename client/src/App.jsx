@@ -14,10 +14,10 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <div className="flex-column justify-flex-start min-100-vh">
-        <div className>
+        <div>
         <Header />
         </div>
-        <div className="flex-column justify-center align-center min-100-vh bg-primary">
+        <div>
           <Outlet />
         </div>
         <Footer />

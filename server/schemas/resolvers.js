@@ -1,32 +1,47 @@
 const { User, Book } = require('../models');
+const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers = {
   Query: {
-    user: async () => {
-      return User.find({});
+    users: async () => {
+      return User.find();
     },
-    book: async () => {
-      return Book.find({});
-    }
-    /*matchups: async (parent, { _id }) => {
-      const params = _id ? { _id } : {};
-      return Matchup.find(params);
+    user: async (parent, { username }) => {
+      return User.findOne({ username });
+    },
+    // This would be similar to adding a comment to a book?
+    /*thought: async (parent, { bookId }) => {
+      return Book.findOne({ _id: bookId });
     },*/
-  },
-  /*Mutation: {
-    /*createMatchup: async (parent, args) => {
-      const matchup = await Matchup.create(args);
-      return matchup;
+    books: async (parent, { thoughtId }) => {
+      return Book.find();
     },
-    createVote: async (parent, { _id, techNum }) => {
-      const vote = await Matchup.findOneAndUpdate(
-        { _id },
-        { $inc: { [`user${techNum}_votes`]: 1 } },
-        { new: true }
-      );
-      return vote;
+  },
+  
+  Mutation: {
+    addUser: async (parent, { username, email, password }) => {
+      const user = await User.create({ username, email, password });
+      const token = signToken(user);
+      return { token, user };
+    }, 
+    login: async (parent, { email, password }) => {
+      const user = await User.findOne({ email });
+
+      if (!user) {
+        throw AuthenticationError;
+      }
+
+      const correctPw = await user.isCorrectPassword(password);
+
+      if (!correctPw) {
+        throw AuthenticationError;
+      }
+
+      const token = signToken(user);
+
+      return { token, user };
     }
-  }*/
+  },
 };
 
 module.exports = resolvers;

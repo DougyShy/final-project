@@ -1,7 +1,9 @@
 const typeDefs = `
   type User {
-    _id: ID!
-    email: String!
+    _id: ID
+    username: String
+    email: String
+    password: String
   }
 
   type Book {
@@ -10,15 +12,23 @@ const typeDefs = `
     author: String!
   }
 
+  type Auth {
+    token: ID!
+    user: User
+  } 
+
   type Query {
-    user: [User]
-    book: [Book]
+    users: [User]
+    user(username: String!): User
+    books: [Book]
+    book(_id: ID!): Book
+
   }
-`
-  /*type Mutation {
-    createMatchup(tech1: String!, tech2: String!): Matchup
-    createVote(_id: String!, techNum: Int!): Matchup
+
+  type Mutation {
+    addUser(username: String!, email: String!, password: String!): Auth
+    login(email: String!, password: String!): Auth
   }
-`;*/
+`;
 
 module.exports = typeDefs;
