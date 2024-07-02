@@ -13,7 +13,7 @@ const resolvers = {
     /*thought: async (parent, { bookId }) => {
       return Book.findOne({ _id: bookId });
     },*/
-    books: async (parent, { thoughtId }) => {
+    books: async () => {
       return Book.find();
     },
   },

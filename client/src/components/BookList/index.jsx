@@ -1,6 +1,17 @@
 import { Link } from 'react-router-dom';
 
-const BookList = ({ books, title }) => {
+const BookList = (books) => {
+  console.log(books);
+  if (!books.length) {
+    return <h3>No Books Yet</h3>;
+  }
+
+  return (
+    <div>BOOK CARDS HERE?</div>
+  )
+};
+
+/*const BookList = ({ books, title }) => {
   if (!books.length) {
     return <h3>No Books Yet</h3>;
   }
@@ -18,6 +29,6 @@ const BookList = ({ books, title }) => {
         ))}
     </div>
   );
-};
+};*/
 
 export default BookList;
