@@ -3,6 +3,7 @@ import { useQuery } from '@apollo/client';
 import { GridRow, GridColumn, Grid, Image } from 'semantic-ui-react';
 
 import BookList from '../components/BookList';
+//import BookCard from '../components/BookCard';
 
 import { QUERY_BOOKS } from '../utils/queries';
 
@@ -20,6 +21,7 @@ const Home = () => {
             <BookList 
               books={books}
             />
+
           </GridColumn>
           <GridColumn width={3}>
             <Image src='https://react.semantic-ui.com/images/wireframe/image.png' />
