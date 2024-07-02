@@ -11,7 +11,7 @@ const BookList = ( {books} ) => {
       {books &&
         books.map((book) => (
           <div>
-            {book.title}
+            {book.title} + {book.author}
           </div>
         ))}
         
