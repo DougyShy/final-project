@@ -1,14 +1,23 @@
 import { Link } from 'react-router-dom';
 
-const BookList = (books) => {
+const BookList = ( {books} ) => {
   console.log(books);
   if (!books.length) {
     return <h3>No Books Yet</h3>;
   }
 
   return (
-    <div>BOOK CARDS HERE?</div>
-  )
+    <div>
+      {books &&
+        books.map((book) => (
+          <div>
+            {book.title}
+          </div>
+        ))}
+        
+    </div>
+  );
+
 };
 
 /*const BookList = ({ books, title }) => {
