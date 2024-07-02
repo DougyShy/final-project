@@ -1,42 +1,33 @@
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { GridRow, GridColumn, Grid, Image } from 'semantic-ui-react';
 
+import BookList from '../components/BookList';
+//import BookCard from '../components/BookCard';
+
+import { QUERY_BOOKS } from '../utils/queries';
+
 const Home = () => {
-   
+  const { loading, data } = useQuery(QUERY_BOOKS);
+  const books = data?.books || []; 
   return (
     <main>
-      <Grid>
+      <Grid celled='internally'>
         <GridRow>
           <GridColumn width={3}>
-            <div>
-              <Image src='https://react.semantic-ui.com/images/wireframe/paragraph.png' />
-            </div>
-            <div>
-              Category and other options nav can go header
-            </div>
+            <Image src='https://react.semantic-ui.com/images/wireframe/image.png' />
           </GridColumn>
-
           <GridColumn width={10}>
-            <div>
-              <Image src='https://react.semantic-ui.com/images/wireframe/paragraph.png' />
-            </div>
-            <div>
-              Cards can go here
-            </div>
+            <BookList 
+              books={books}
+            />
 
           </GridColumn>
-
           <GridColumn width={3}>
-            <div>
-              <Image src='https://react.semantic-ui.com/images/wireframe/paragraph.png' />
-            </div>
-            <div>
-              Cart and other random information can go here
-            </div>
+            <Image src='https://react.semantic-ui.com/images/wireframe/image.png' />
           </GridColumn>
         </GridRow>
-  </Grid>
+     </Grid>
     </main>
   );
 };

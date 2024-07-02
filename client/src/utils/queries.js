@@ -10,4 +10,16 @@ export const QUERY_USER = gql`
   }
 `;
 
+export const QUERY_BOOKS = gql`
+  query getBooks {
+    books {
+      _id
+      title
+      author
+    }
+  }
+`;
+
+
+
 
