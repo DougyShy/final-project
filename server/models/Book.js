@@ -16,7 +16,7 @@ const bookSchema = new Schema({
     type: String,
     required: false,
     unique: false
-  }
+  },
 
   rating: {
     type: Number,
