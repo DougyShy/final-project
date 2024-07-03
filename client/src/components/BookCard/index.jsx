@@ -9,16 +9,14 @@ import {
 } from 'semantic-ui-react'
 
 const BookCard = ( {book} ) => {
-  console.log("HERE");
   console.log(book);
   if (!book) {
     return <h3>No Book Found</h3>;
   }
 
   return (
-    <div>
       <Card>
-        <Image src='https://react.semantic-ui.com/images/avatar/large/daniel.jpg' wrapped ui={false} />
+        <Image src={book.img_URL} wrapped ui={false} />
         <CardContent>
           <CardHeader>{book.title}</CardHeader>
           <CardMeta>Author: {book.author} </CardMeta>
@@ -34,7 +32,6 @@ const BookCard = ( {book} ) => {
           </a>
         </CardContent>
       </Card>
-    </div>
   )
 
   /*return (

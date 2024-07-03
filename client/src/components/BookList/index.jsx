@@ -1,5 +1,6 @@
 
 import BookCard from "../BookCard";
+import { CardGroup, Card } from 'semantic-ui-react'
 
 const BookList = ( {books} ) => {
   console.log(books);
@@ -9,6 +10,7 @@ const BookList = ( {books} ) => {
 
   return (
     <div>
+      <CardGroup itemsPerRow={6}>
       {books &&
         books.map((currentBook) => (
           <div key={currentBook._id}>
@@ -21,6 +23,7 @@ const BookList = ( {books} ) => {
           </div>
           
         ))}
+      </CardGroup>
         
     </div>
 

@@ -4,7 +4,7 @@
     "author": "George Orwell",
     "genre": "Classics",
     "year": 1949,
-    "img_URL": "./client/src/images/1984.png",
+    "img_URL": "/images/1984.png",
     "rating": 5
   },
   {
@@ -12,7 +12,7 @@
     "author": "Yann Martel",
     "genre": "Classics",
     "year": 2001,
-    "img_URL": "./client/src/images/Life-of-Pi.png",
+    "img_URL": "/images/Life-of-Pi.png",
     "rating": 5
   },
   {
@@ -20,7 +20,7 @@
     "author": "Harper Lee",
     "genre": "Classics",
     "year": 1960,
-    "img_URL": "./client/src/images/to-kill-a-mockingbird.png",
+    "img_URL": "/images/to-kill-a-mockingbird.png",
     "rating": 5
   },
   {
@@ -28,7 +28,7 @@
     "author": "Jane Austen",
     "genre": "Classics",
     "year": 1811,
-    "img_URL": "./client/src/images/sense-and-sensibility.png",
+    "img_URL": "/images/sense-and-sensibility.png",
     "rating": 5
   },
   {
@@ -36,7 +36,7 @@
     "author": "J. D. Salinger",
     "genre": "Classics",
     "year": 1951,
-    "img_URL": "./client/src/images/the-catcher-in-the-rye.png",
+    "img_URL": "/images/the-catcher-in-the-rye.png",
     "rating": 5
   },
   {
@@ -44,7 +44,7 @@
     "author": "Charles Dickens",
     "genre": "Classics",
     "year": 1861,
-    "img_URL": "./client/src/images/great-expectations.png",
+    "img_URL": "/images/great-expectations.png",
     "rating": 5
   },
   {
@@ -52,7 +52,7 @@
     "author": "Homer",
     "genre": "Classics",
     "year": 1614,
-    "img_URL": "./client/src/images/odyssey.png",
+    "img_URL": "/images/odyssey.png",
     "rating": 5
   },
   {
@@ -60,7 +60,7 @@
     "author": "Jane Austen",
     "genre": "Classics",
     "year": 1813,
-    "img_URL": "./client/src/images/pride-and-predjudice.png",
+    "img_URL": "/images/pride-and-predjudice.png",
     "rating": 5
   },
   {
@@ -68,7 +68,7 @@
     "author": "Jane Austen",
     "genre": "Classics",
     "year": 1868,
-    "img_URL": "./client/src/images/little-women.png",
+    "img_URL": "/images/little-women.png",
     "rating": 5
   },
   {
@@ -76,7 +76,7 @@
     "author": "Ray Bradbury",
     "genre": "Classics",
     "year": 1953,
-    "img_URL": "./client/src/images/fahrenheit-451.png",
+    "img_URL": "/images/fahrenheit-451.png",
     "rating": 5
   }
 ]
