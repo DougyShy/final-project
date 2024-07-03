@@ -6,10 +6,23 @@ const bookSchema = new Schema({
     required: true,
     unique: false, // does this have to be true? Can't multiple authors have books titled the same??
   },
+  
   author: {
     type: String,
     required: true,
     unique: false,
+  },
+
+  genre: {
+    type: String,
+    required: true,
+    unique: false
+  },
+
+  year: {
+    type: Number,
+    required: false,
+    unique: false
   },
 
   img_URL: {

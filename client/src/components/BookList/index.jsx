@@ -10,12 +10,12 @@ const BookList = ( {books} ) => {
   return (
     <div>
       {books &&
-        books.map((book) => (
-          <div key={book._id} className="bookCardClassName">
-            {book.title} + {book.author}
+        books.map((currentBook) => (
+          <div key={currentBook._id}>
             <div>
-              HELLO
-              <BookCard />
+              <BookCard 
+                book={currentBook}
+              />
             </div>
 
           </div>

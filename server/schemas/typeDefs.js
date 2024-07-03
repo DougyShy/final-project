@@ -10,6 +10,10 @@ const typeDefs = `
     _id: ID!
     title: String!
     author: String!
+    genre: String
+    year: Int
+    img_URL: String
+    rating: Int
   }
 
   type Auth {

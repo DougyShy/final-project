@@ -16,6 +16,10 @@ export const QUERY_BOOKS = gql`
       _id
       title
       author
+      genre
+      year
+      img_URL
+      rating
     }
   }
 `;
