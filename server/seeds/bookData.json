@@ -1,17 +1,82 @@
 [
   {
-    "title": "BOOK TITLE HERE",
-    "author": "AUTHOR INFO HERE",
-    "genre": "DRAMA",
-    "year": 2024,
-    "img_URL": "./client/imagehere",
+    "title": "1984",
+    "author": "George Orwell",
+    "genre": "Classics",
+    "year": 1949,
+    "img_URL": "./client/src/images/1984.png",
     "rating": 5
   },
   {
-    "title": "BEST BOOK EVER",
-    "author": "BEST WRITER EVER"
+    "title": "Life of Pi",
+    "author": "Yann Martel",
+    "genre": "Classics",
+    "year": 2001,
+    "img_URL": "./client/src/images/Life-of-Pi.png",
+    "rating": 5
+  },
+  {
+    "title": "To Kill a Mockingbird",
+    "author": "Harper Lee",
+    "genre": "Classics",
+    "year": 1960,
+    "img_URL": "./client/src/images/to-kill-a-mockingbird.png",
+    "rating": 5
+  },
+  {
+    "title": "Sense and Sensibility",
+    "author": "Jane Austen",
+    "genre": "Classics",
+    "year": 1811,
+    "img_URL": "./client/src/images/sense-and-sensibility.png",
+    "rating": 5
+  },
+  {
+    "title": "The Catcher in the Rye",
+    "author": "J. D. Salinger",
+    "genre": "Classics",
+    "year": 1951,
+    "img_URL": "./client/src/images/the-catcher-in-the-rye.png",
+    "rating": 5
+  },
+  {
+    "title": "Great Expectations",
+    "author": "Charles Dickens",
+    "genre": "Classics",
+    "year": 1861,
+    "img_URL": "./client/src/images/great-expectations.png",
+    "rating": 5
+  },
+  {
+    "title": "Odyssey",
+    "author": "Homer",
+    "genre": "Classics",
+    "year": 1614,
+    "img_URL": "./client/src/images/odyssey.png",
+    "rating": 5
+  },
+  {
+    "title": "Pride and Predjudice",
+    "author": "Jane Austen",
+    "genre": "Classics",
+    "year": 1813,
+    "img_URL": "./client/src/images/pride-and-predjudice.png",
+    "rating": 5
+  },
+  {
+    "title": "Little Women",
+    "author": "Jane Austen",
+    "genre": "Classics",
+    "year": 1868,
+    "img_URL": "./client/src/images/little-women.png",
+    "rating": 5
+  },
+  {
+    "title": "Fahrenheit 451",
+    "author": "Ray Bradbury",
+    "genre": "Classics",
+    "year": 1953,
+    "img_URL": "./client/src/images/fahrenheit-451.png",
+    "rating": 5
   }
 ]
-
-
-
