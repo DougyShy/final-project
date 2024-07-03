@@ -1,11 +1,14 @@
 //import { useLocation, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
  return (
    <footer className="w-100 mt-auto bg-secondary p-4">
       <div className="container text-center mb-5">
-      <div class="ui breadcrumb">
-  <div class="active section"><a href="#">Contact Us!</a></div>
+      <div>
+        <Link className="btn btn-lg btn-info m-2" to="/errorIf!Path">
+                  Contact Us!
+        </Link>
       </div>
       </div>
     </footer>
