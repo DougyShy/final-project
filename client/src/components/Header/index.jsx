@@ -41,8 +41,6 @@ const Header = () => {
                 <a className="login" href="/login">Login</a>
                 <div className="divider">|</div>
                 <a className="signup" href="/signup">Sign Up</a>
-                <div className="divider">|</div>
-                <a className="contact" href="/client/src/pages/NotFound.jsx">Contact Us</a>
                 </div>
               </div>
             </GridColumn>
