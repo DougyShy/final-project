@@ -25,7 +25,11 @@ const Header = () => {
           <>
             <GridColumn width={8} textAlign={'right'}>
               <div className="aligh-content-right">
-              <div className="ui breadcrumb"><a className="cart" href="/cart">cart</a><div className="divider">|</div><a className="logout" onClick={logout} href="/">log out</a></div>
+              <div className="ui breadcrumb">
+                <a className="cart" href="/cart">cart</a>
+                <div className="divider">|</div>
+                <a className="logout" onClick={logout} href="/">log out</a>
+              </div>
               </div>
             </GridColumn>
           </>
@@ -33,7 +37,13 @@ const Header = () => {
           <>
             <GridColumn width={8} textAlign={'right'}>
               <div className="aligh-content-right">
-                <div className="ui breadcrumb"><a className="login" href="/login">login</a><div className="divider">|</div><a className="signup" href="/signup">sign up</a></div>
+                <div className="ui huge breadcrumb">
+                <a className="login" href="/login">Login</a>
+                <div className="divider">|</div>
+                <a className="signup" href="/signup">Sign Up</a>
+                <div className="divider">|</div>
+                <a className="contact" href="/client/src/pages/NotFound.jsx">Contact Us</a>
+                </div>
               </div>
             </GridColumn>
           </>

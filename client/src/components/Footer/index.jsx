@@ -1,21 +1,12 @@
 //import { useLocation, useNavigate } from 'react-router-dom';
 
 const Footer = () => {
-  return (
-    <footer className="w-100 mt-auto bg-secondary p-4">
+ return (
+   <footer className="w-100 mt-auto bg-secondary p-4">
       <div className="container text-center mb-5">
-        <h4>
-          Made with{' '}
-          <span
-            className="emoji"
-            role="img"
-            aria-label="heart"
-            aria-hidden="false"
-          >
-            ❤️
-          </span>{' '}
-          by Lesley, Ethan, and Doug.
-        </h4>
+      <div class="ui breadcrumb">
+  <div class="active section"><a href="#">Contact Us!</a></div>
+      </div>
       </div>
     </footer>
   );
