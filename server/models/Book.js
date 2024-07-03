@@ -11,6 +11,19 @@ const bookSchema = new Schema({
     required: true,
     unique: false,
   },
+
+  img_URL: {
+    type: String,
+    required: false,
+    unique: false
+  }
+
+  rating: {
+    type: Number,
+    require: false,
+    unique: false
+  }
+  
   /*comments: [
     {
       commentText: {
