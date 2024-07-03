@@ -17,7 +17,7 @@ const Header = () => {
         <Grid.Column width={8} floated={'left'}>
         <a href="/">
           <div>
-            <img src="../public/images/bookstore-icon.png" alt="Bookstore Icon" />
+            <img src="/images/bookstore-icon.png" alt="Bookstore Icon" />
           </div>
         </a>
         </Grid.Column>
