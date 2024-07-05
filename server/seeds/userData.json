@@ -1,18 +1,21 @@
 [
   {
-    "username": "Brian",
-    "email": "bkernighan@techfriends.dev",
-    "password": "password01"
+    "username": "lesley",
+    "email": "lesley@yahoo.com",
+    "password": "lesley123",
+    "cart": []
   },
   {
     "username": "doug",
-    "email": "doug@doug.com",
-    "password": "doug123"
+    "email": "doug@yahoo.com",
+    "password": "doug123",
+    "cart": []
   },
   {
-    "username": "Lesley",
-    "email": "lesley@techfriends.dev",
-    "password": "password02"
+    "username": "ethan",
+    "email": "ethan@yahoo.com",
+    "password": "ethan123",
+    "cart": []
   }
 
 ]
