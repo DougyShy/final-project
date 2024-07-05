@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+
 import Auth from '../../utils/auth';
 
 import { Image, GridRow, GridColumn, Grid } from 'semantic-ui-react'
@@ -23,7 +24,12 @@ const Header = () => {
         </Grid.Column>
         {Auth.loggedIn() ? (
           <>
-            <GridColumn width={8} textAlign={'right'}>
+            <GridColumn width={4} textAlign={'left'}>
+              <div className="aligh-content-right">
+                Welcome, {Auth.getProfile().data.username}!!
+              </div>
+            </GridColumn>
+            <GridColumn width={4} textAlign={'right'}>
               <div className="aligh-content-right">
               <div className="ui breadcrumb">
                 <a className="cart" href="/cart">cart</a>
@@ -35,7 +41,7 @@ const Header = () => {
           </>
         ) : (
           <>
-            <GridColumn width={8} textAlign={'right'}>
+            <Grid.Column width={8} textAlign={'right'} floated={'right'}>
               <div className="aligh-content-right">
                 <div className="ui huge breadcrumb">
                 <a className="login" href="/login">Login</a>
@@ -43,7 +49,7 @@ const Header = () => {
                 <a className="signup" href="/signup">Sign Up</a>
                 </div>
               </div>
-            </GridColumn>
+            </Grid.Column>
           </>
         )}
       </GridRow>
