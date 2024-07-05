@@ -35,6 +35,12 @@ const bookSchema = new Schema({
     type: Number,
     require: false,
     unique: false
+  },
+
+  price: {
+    type: Number, 
+    require: true,
+    unique: false
   }
   
   /*comments: [

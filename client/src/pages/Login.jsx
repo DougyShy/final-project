@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
+import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
@@ -23,17 +23,20 @@ const Login = (props) => {
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+    console.log(formState);
     console.log("HERE IN HANDLE FORM SUBMIT");
     try {
       const { data } = await login({
         variables: { ...formState },
-      });
+      })
+      console.log( data );
 
       console.log({data});
       console.log("NOW IM HERE");
 
       Auth.login(data.login.token);
     } catch (e) {
+      console.log("ERROR HERE");
       console.error(e);
     }
 
@@ -59,6 +62,7 @@ const Login = (props) => {
                   iconPosition="left"
                   placeholder="email"
                   name="email"
+                  type="email"
                   value={formState.email}
                   onChange={handleChange}
                 />
@@ -73,7 +77,7 @@ const Login = (props) => {
                   onChange={handleChange}
                 />
 
-                <Button color="teal" fluid size="large" style={ {type:'submit'}} >
+                <Button color="teal" fluid size="large" style={ {type:'submit', cursor:'pointer'}} >
                   Login
                 </Button>
               </Segment>

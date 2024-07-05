@@ -1,3 +1,7 @@
+import { useState } from 'react';
+
+import './bookCardStyle.css'
+
 import {
   CardMeta,
   CardHeader,
@@ -14,9 +18,22 @@ const BookCard = ( {book} ) => {
     return <h3>No Book Found</h3>;
   }
 
+  const [hovered, setHovered] = useState(false);
+
   return (
-      <Card>
-        <Image src={book.img_URL} wrapped ui={false} />
+      <Card
+        className="hover-card"
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+      >  
+        <div className="image-container">
+          <Image src={book.img_URL} wrapped ui={false} />
+            {hovered && (
+              <div className="overlay">
+                <div className="plus-sign">+</div>
+              </div>
+            )}
+        </div>
         <CardContent>
           <CardHeader>{book.title}</CardHeader>
           <CardMeta>Author: {book.author} </CardMeta>
@@ -26,34 +43,15 @@ const BookCard = ( {book} ) => {
           </CardDescription>
         </CardContent>
         <CardContent extra>
-          <a>
-            <Icon name='dollar sign' />
-            10 Friends
+          <a cursor='crosshair'>
+            <Icon name='dollar sign'/>
+              {book.price}
           </a>
+          <div>HELLO</div>
         </CardContent>
       </Card>
   )
-
-  /*return (
-    <div>
-      <Card>
-        <Image src='https://react.semantic-ui.com/images/avatar/large/daniel.jpg' wrapped ui={false} />
-        <CardContent>
-          <CardHeader>Daniel</CardHeader>
-          <CardMeta>Joined in 2016</CardMeta>
-          <CardDescription>
-            Daniel is a comedian living in Nashville.
-          </CardDescription>
-        </CardContent>
-        <CardContent extra>
-          <a>
-            <Icon name='user' />
-            10 Friends
-          </a>
-        </CardContent>
-      </Card>
-    </div>
-  )*/
+  
 };
 
 export default BookCard;

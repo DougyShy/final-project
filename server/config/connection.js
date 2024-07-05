@@ -4,5 +4,4 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://dougscheible:fossil69
 //mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/bookstore');
 
 
-
 module.exports = mongoose.connection;

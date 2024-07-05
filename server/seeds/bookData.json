@@ -5,7 +5,8 @@
     "genre": "Classics",
     "year": 1949,
     "img_URL": "/images/1984.png",
-    "rating": 5
+    "rating":5,
+    "price": 9.99
   },
   {
     "title": "Life of Pi",
@@ -13,7 +14,8 @@
     "genre": "Classics",
     "year": 2001,
     "img_URL": "/images/Life-of-Pi.png",
-    "rating": 5
+    "rating":5,
+    "price": 9.99
   },
   {
     "title": "To Kill a Mockingbird",
@@ -21,7 +23,8 @@
     "genre": "Classics",
     "year": 1960,
     "img_URL": "/images/to-kill-a-mockingbird.png",
-    "rating": 5
+    "rating":5,
+    "price": 9.99
   },
   {
     "title": "Sense and Sensibility",
@@ -29,7 +32,8 @@
     "genre": "Classics",
     "year": 1811,
     "img_URL": "/images/sense-and-sensibility.png",
-    "rating": 5
+    "rating":5,
+    "price": 9.99
   },
   {
     "title": "The Catcher in the Rye",
@@ -37,7 +41,8 @@
     "genre": "Classics",
     "year": 1951,
     "img_URL": "/images/the-catcher-in-the-rye.png",
-    "rating": 5
+    "rating":5,
+    "price": 9.99
   },
   {
     "title": "Great Expectations",
@@ -45,7 +50,8 @@
     "genre": "Classics",
     "year": 1861,
     "img_URL": "/images/great-expectations.png",
-    "rating": 5
+    "rating":5,
+    "price": 9.99
   },
   {
     "title": "Odyssey",
@@ -53,7 +59,8 @@
     "genre": "Classics",
     "year": 1614,
     "img_URL": "/images/odyssey.png",
-    "rating": 5
+    "rating":5,
+    "price": 9.99
   },
   {
     "title": "Pride and Predjudice",
@@ -61,7 +68,8 @@
     "genre": "Classics",
     "year": 1813,
     "img_URL": "/images/pride-and-predjudice.png",
-    "rating": 5
+    "rating":5,
+    "price": 9.99
   },
   {
     "title": "Little Women",
@@ -69,7 +77,8 @@
     "genre": "Classics",
     "year": 1868,
     "img_URL": "/images/little-women.png",
-    "rating": 5
+    "rating":5,
+    "price": 9.99
   },
   {
     "title": "Fahrenheit 451",
@@ -77,6 +86,7 @@
     "genre": "Classics",
     "year": 1953,
     "img_URL": "/images/fahrenheit-451.png",
-    "rating": 5
+    "rating":5,
+    "price": 9.99
   }
 ]

@@ -20,6 +20,7 @@ export const QUERY_BOOKS = gql`
       year
       img_URL
       rating
+      price
     }
   }
 `;

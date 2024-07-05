@@ -10,8 +10,8 @@ db.once('open', async () => {
   await cleanDB('Book', 'books');
 
 
-  await User.insertMany(userData);
-  await Book.insertMany(bookData);
+  await User.create(userData);
+  await Book.create(bookData);
 
   console.log('Users seeded!');
   console.log('Books seeded!');

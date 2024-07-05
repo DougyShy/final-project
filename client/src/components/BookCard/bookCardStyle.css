@@ -1,0 +1,45 @@
+/* Styles for the card and image */
+.hover-card {
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-container {
+  position: relative;
+  cursor: pointer;
+}
+
+.image-container img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.image-container:hover {
+  transform: scale(1.03);
+}
+
+/* Overlay styles for the plus sign */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3); /* Semi-transparent black background */
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.plus-sign {
+  font-size: 50px; /* Size of the plus sign */
+  font-weight: bold;
+}
+
+/* Hover effect for the card */
+/*.hover-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}*/
