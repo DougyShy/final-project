@@ -1,16 +1,34 @@
 import { Link } from 'react-router-dom';
 
-import Auth from '../../utils/auth';
+import Auth from '../utils/auth';
 
+import { useQuery } from '@apollo/client';
 import { Image, GridRow, GridColumn, Grid } from 'semantic-ui-react'
 import React from 'react'
 import 'semantic-ui-css/semantic.min.css'
+
+import { QUERY_USER } from '../utils/queries';
 
 const Header = () => {
   const logout = (event) => {
     event.preventDefault();
     Auth.logout();
   }
+
+  let username = '';
+
+  /*if (Auth.loggedIn()) {
+    username = Auth.getProfile().data.username;
+  }*/
+
+  const { loading, data } = useQuery(QUERY_USER, {
+    variables: { username: "doug" }
+  });
+
+  if(data) {
+    console.log("DATA HERE: " + data.user.cart.length);
+  }
+
 
   return (
     <Grid columns={2} padded={false}>
@@ -32,7 +50,7 @@ const Header = () => {
             <GridColumn width={4} textAlign={'right'}>
               <div className="aligh-content-right">
                 <div className="ui breadcrumb">
-                  <a className="cart" href="/cart">cart({Auth.getProfile().data.username})</a>
+                  <a className="cart" href="/cart">cart({data ? 0:1})</a>
                   <div className="divider">|</div>
                   <a className="logout" onClick={logout} href="/">log out</a>
                 </div>

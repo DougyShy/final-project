@@ -5,7 +5,7 @@ import { GridRow, GridColumn, Grid, Image } from 'semantic-ui-react';
 import BookList from '../components/BookList';
 //import BookCard from '../components/BookCard';
 
-import { QUERY_BOOKS } from '../utils/queries';
+import { QUERY_BOOKS } from '../components/utils/queries';
 
 const Home = () => {
   const { loading, data } = useQuery(QUERY_BOOKS);

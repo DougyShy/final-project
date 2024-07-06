@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
 
-import Auth from '../utils/auth';
+import Auth from '../components/utils/auth';
 import { useMutation } from '@apollo/client';
-import { ADD_USER } from '../utils/mutations';
+import { ADD_USER } from '../components/utils/mutations';
 
 const Signup = () => {
   const [username, setUsername] = useState('');
