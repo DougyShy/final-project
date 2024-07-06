@@ -13,7 +13,6 @@ import {
 } from 'semantic-ui-react'
 
 const BookCard = ( {book} ) => {
-  console.log(book);
   if (!book) {
     return <h3>No Book Found</h3>;
   }
