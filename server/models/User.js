@@ -19,12 +19,12 @@ const userSchema = new Schema({
     required: true,
     minlength: 4,
   },
-  /*cart: [
+  cart: [
     {
       type: Schema.Types.ObjectId,
       ref: 'Book',
     },
-  ],*/
+  ],
 });
 
 userSchema.pre('save', async function (next) {

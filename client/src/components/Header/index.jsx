@@ -31,11 +31,11 @@ const Header = () => {
             </GridColumn>
             <GridColumn width={4} textAlign={'right'}>
               <div className="aligh-content-right">
-              <div className="ui breadcrumb">
-                <a className="cart" href="/cart">cart</a>
-                <div className="divider">|</div>
-                <a className="logout" onClick={logout} href="/">log out</a>
-              </div>
+                <div className="ui breadcrumb">
+                  <a className="cart" href="/cart">cart({Auth.getProfile().data.username})</a>
+                  <div className="divider">|</div>
+                  <a className="logout" onClick={logout} href="/">log out</a>
+                </div>
               </div>
             </GridColumn>
           </>
