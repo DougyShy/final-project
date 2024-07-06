@@ -1,15 +1,15 @@
 const typeDefs = `
   type User {
     _id: ID
-    username: String!
-    email: String!
-    password: String!
+    username: String
+    email: String
+    password: String
   }
 
   type Book {
     _id: ID!
-    title: String!
-    author: String!
+    title: String
+    author: String
     genre: String
     year: Int
     img_URL: String

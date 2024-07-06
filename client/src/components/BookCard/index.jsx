@@ -47,7 +47,6 @@ const BookCard = ( {book} ) => {
             <Icon name='dollar sign'/>
               {book.price}
           </a>
-          <div>HELLO</div>
         </CardContent>
       </Card>
   )
