@@ -9,10 +9,6 @@ const resolvers = {
     user: async (parent, { username }) => {
       return User.findOne({ username });
     },
-    // This would be similar to adding a comment to a book?
-    /*thought: async (parent, { bookId }) => {
-      return Book.findOne({ _id: bookId });
-    },*/
     books: async () => {
       return Book.find();
     },
@@ -40,8 +36,37 @@ const resolvers = {
       const token = signToken(user);
 
       return { token, user };
+    },
+    addBookToCart: async (parent, { username, bookID }) => {
+      try {
+        // Find the user by their username
+        const user = await User.findOne({ username });
+    
+        if (!user) {
+          throw new Error('User not found');
+        }
+    
+        // Find the book by its ID to ensure it exists
+        const book = await Book.findById(bookID);
+    
+        if (!book) {
+          throw new Error('Book not found');
+        }
+    
+        // Add the book's ObjectId to the user's cart
+        user.cart.push(book._id);
+    
+        // Save the updated user document
+        await user.save();
+    
+        console.log('Book added to cart:', book);
+        return book;
+      } catch (error) {
+        console.error('Error adding book to cart:', error);
+        throw error;
+      }
     }
-  },
+  }
 };
 
 module.exports = resolvers;
