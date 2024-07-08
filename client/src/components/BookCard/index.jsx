@@ -1,5 +1,7 @@
 import { useState } from 'react';
+import { useMutation } from '@apollo/client';
 import Auth from '../utils/auth';
+import { ADD_BOOK_TO_CART } from '../utils/mutations';
 
 import './bookCardStyle.css'
 
@@ -20,7 +22,7 @@ const BookCard = ( {book} ) => {
 
   const [hovered, setHovered] = useState(false);
 
-  
+  const [addBookToCart, { data }] = useMutation(ADD_BOOK_TO_CART);
   const bookID = book._id;
 
   const handleClick = async (event) => {
