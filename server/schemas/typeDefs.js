@@ -8,7 +8,7 @@ const typeDefs = `
   }
 
   type Book {
-    _id: ID!
+    _id: ID
     title: String
     author: String
     genre: String
@@ -33,6 +33,7 @@ const typeDefs = `
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
+    addBookToCart(username: String!, bookID: ID!): User
   }
 `;
 

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Auth from '../utils/auth';
 
 import './bookCardStyle.css'
 
@@ -19,11 +20,31 @@ const BookCard = ( {book} ) => {
 
   const [hovered, setHovered] = useState(false);
 
+  
+  const bookID = book._id;
+
+  const handleClick = async (event) => {
+    event.preventDefault();
+    try {
+      if (Auth.loggedIn) {
+        const username = Auth.getProfile().data.username;
+        console.log(Auth.getProfile().data.username + book._id);
+        const { data } = await addBookToCart({
+        variables: { username, bookID },
+      });
+
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   return (
       <Card
         className="hover-card"
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
+        onClick={handleClick}
       >  
         <div className="image-container">
           <Image src={book.img_URL} wrapped ui={false} />
