@@ -19,6 +19,7 @@ export const ADD_USER = gql`
       user {
         _id
         username
+        cart
       }
     }
   }
@@ -28,7 +29,6 @@ export const ADD_BOOK_TO_CART = gql`
   mutation addBookToCart($username: String!, $bookID: ID!) {
     addBookToCart(username: $username, bookID: $bookID) {
       _id
-      title
     }
   }
 `;

@@ -54,7 +54,7 @@ const resolvers = {
         }
     
         // Add the book's ObjectId to the user's cart
-        user.cart.push(book._id);
+        user.cart.push(book);
     
         // Save the updated user document
         await user.save();

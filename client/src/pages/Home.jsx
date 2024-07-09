@@ -18,10 +18,7 @@ console.log("HERE WITH USERNAME:" + username);
 
 const Home = () => {
   const { loading, data } = useQuery(QUERY_BOOKS);
-  const { otherLoading, otherData} = useQuery(QUERY_USER, {
-    variables: { username: 'doug' }
-  });
-  console.log("HERE AT HOME:" + otherData);
+  
   const books = data?.books || []; 
   
   return (

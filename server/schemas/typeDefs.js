@@ -4,7 +4,7 @@ const typeDefs = `
     username: String
     email: String
     password: String
-    cart: [Book]!
+    cart: [ID]!
   }
 
   type Book {

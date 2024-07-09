@@ -17,18 +17,17 @@ const Header = () => {
 
   let username = '';
 
-  /*if (Auth.loggedIn()) {
+  if (Auth.loggedIn()) {
     username = Auth.getProfile().data.username;
-  }*/
-
-  const { loading, data } = useQuery(QUERY_USER, {
-    variables: { username: "doug" }
-  });
-
-  if(data) {
-    console.log("DATA HERE: " + data.user.cart.length);
   }
 
+  const { loading, data } = useQuery(QUERY_USER, {
+    variables: { username }
+  });
+
+  if (data) {
+    console.log(data.user.cart.length);
+  };
 
   return (
     <Grid columns={2} padded={false}>
@@ -50,7 +49,7 @@ const Header = () => {
             <GridColumn width={4} textAlign={'right'}>
               <div className="aligh-content-right">
                 <div className="ui breadcrumb">
-                  <a className="cart" href="/cart">cart({data ? 0:1})</a>
+                  <a className="cart" href="/cart">cart({data?data.user.cart.length:0})</a>
                   <div className="divider">|</div>
                   <a className="logout" onClick={logout} href="/">log out</a>
                 </div>
