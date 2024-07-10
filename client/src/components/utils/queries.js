@@ -52,17 +52,14 @@ export const QUERY_BOOKS = gql`
   }
 `;
 
-/*export const QUERY_BOOKS_BY_IDS = gql `
-  query getBooksByIds {
-    books {
+export const QUERY_BOOKS_BY_IDS = gql`
+  query QueryBooks($ids: [ID!]!) {
+    getBooksByIdss(ids: $ids) {
       _id
       title
       author
-      genre
-      year
-      img_URL
-      rating
-      price
     }
-  }`*/
+  }
+`;
+
 

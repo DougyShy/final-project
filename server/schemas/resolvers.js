@@ -15,10 +15,10 @@ const resolvers = {
     book: async (parent, { _id }) => {
       return Book.findOne({ _id });
     },
-    /*getBooksByIds: async (parent, args, context, info) => {
+    getBooksByIds: async (parent, args, context, info) => {
       const { ids } = args;
       return (await Book.find()).filter(book => ids.includes(book._id));
-    }*/
+    }
   },
   
   Mutation: {

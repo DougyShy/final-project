@@ -1,4 +1,4 @@
-import { QUERY_BOOK } from '../utils/queries';
+import { QUERY_BOOK, QUERY_BOOKS_BY_IDS } from '../utils/queries';
 
 import { useQuery } from '@apollo/client';
 
@@ -21,15 +21,21 @@ const Cart = ( {cart} ) => {
 
 const booksInCart = [];
 
-cart.map((id) => {console.log(id)});
+//cart.map((id) => {console.log(id)});
+
+/*const { cartLoading, cartData } = useQuery(QUERY_BOOKS_BY_IDS, {
+  variables: { ids: cart }
+});*/
 
 const { loading, data } = useQuery(QUERY_BOOK, {
-  variables: {id: cart}
+  variables: { id: cart[0] }
 });
 
-  console.log(data);
-
-
+  if(data) {
+    console.log("DATA HERE:" + data.book.author);
+  } else {
+    console.log("NO DATA PRESENT FOR CART");
+  }
     
   return (
     <div>
