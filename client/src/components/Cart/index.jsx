@@ -1,3 +1,7 @@
+import { QUERY_BOOK } from '../utils/queries';
+
+import { useQuery } from '@apollo/client';
+
 import {
   ItemImage,
   ItemHeader,
@@ -11,10 +15,21 @@ import {
 } from 'semantic-ui-react'
 
 const Cart = ( {cart} ) => {
-  console.log("CART:" + cart);
   if (!cart) {
     return <h3>Nothing in cart</h3>
   }
+
+const booksInCart = [];
+
+cart.map((id) => {console.log(id)});
+
+const { loading, data } = useQuery(QUERY_BOOK, {
+  variables: {id: cart}
+});
+
+  console.log(data);
+
+
     
   return (
     <div>
@@ -25,7 +40,7 @@ const Cart = ( {cart} ) => {
       {cart &&
         cart.map((currentItem) => (
           <div key={currentItem._id}>
-            Hello World
+            {currentItem}
           </div>
         ))} 
       </ItemGroup>

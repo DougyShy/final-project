@@ -28,6 +28,7 @@ const typeDefs = `
     user(username: String!): User
     books: [Book]
     book(_id: ID!): Book
+    booksById: [Book]
   }
 
   type Mutation {

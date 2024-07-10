@@ -8,19 +8,37 @@ import BookList from '../components/BookList';
 import CategoryList from '../components/CategoryList';
 import Cart from '../components/Cart';
 
-import { QUERY_BOOKS } from '../components/utils/queries';
-import { QUERY_USER } from '../components/utils/queries';
+import { QUERY_BOOKS, QUERY_USER } from '../components/utils/queries';
 
 console.log("LOGGED IN: " + Auth.loggedIn());
 
 const username = Auth.loggedIn() ? Auth.getProfile().data.username : ''; 
-console.log("HERE WITH USERNAME:" + username);
+
+if(!username) {
+  console.log("Username is empty");
+}
 
 const Home = () => {
-  const { loading, data } = useQuery(QUERY_BOOKS);
+  const { loading: booksLoading, data: booksData } = useQuery(QUERY_BOOKS);
+  const { loading: userLoading, data: userData } = useQuery(QUERY_USER, {
+    variables: { username: username }
+  });
   
-  const books = data?.books || []; 
+  const books = booksData?.books || []; 
+  const userInfo = userData?.user || [];
+    
+  console.log(books);
+  console.log(userInfo);
   
+  console.log("USERNAME: " + username);
+
+  const user = userData?.user || [];
+  console.log("USER INFO: " + user.cart)
+
+  if (user) {
+    console.log(user);
+  };
+ 
   return (
     <main>
       <Grid celled='internally'>
@@ -37,7 +55,9 @@ const Home = () => {
           </GridColumn>
           <GridColumn width={3}>
             <Image src='https://react.semantic-ui.com/images/wireframe/image.png' />
-            <Cart />
+            <Cart 
+              cart={user.cart}
+            />
           </GridColumn>
         </GridRow>
      </Grid>

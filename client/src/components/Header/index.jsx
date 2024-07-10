@@ -25,9 +25,9 @@ const Header = () => {
     variables: { username }
   });
 
-  /*if (data) {
-    console.log(data.user.cart.length);
-  };*/
+  if (data) {
+    console.log("USER DATA HERE: " + data);
+  };
 
   return (
     <Grid columns={2} padded={false}>

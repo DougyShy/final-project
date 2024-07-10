@@ -12,6 +12,13 @@ const resolvers = {
     books: async () => {
       return Book.find();
     },
+    book: async (parent, { _id }) => {
+      return Book.findOne({ _id });
+    },
+    /*getBooksByIds: async (parent, args, context, info) => {
+      const { ids } = args;
+      return (await Book.find()).filter(book => ids.includes(book._id));
+    }*/
   },
   
   Mutation: {
