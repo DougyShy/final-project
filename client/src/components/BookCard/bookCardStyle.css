@@ -2,11 +2,12 @@
 .hover-card {
   position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor:default;
 }
 
 .image-container {
   position: relative;
-  cursor: pointer;
+  
 }
 
 .image-container img {
@@ -17,6 +18,7 @@
 
 .image-container:hover {
   transform: scale(1.03);
+  cursor: pointer;
 }
 
 /* Overlay styles for the plus sign */
