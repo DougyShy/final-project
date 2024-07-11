@@ -49,7 +49,7 @@ const Header = () => {
             <GridColumn width={4} textAlign={'right'}>
               <div className="aligh-content-right">
                 <div className="ui breadcrumb">
-                  <a className="cart" href="/cart">cart({data?data.user.cart.length:0})</a>
+                  <a className="cart" href="/cart">cart({data!==undefined?data.user.cart.length:0})</a>
                   <div className="divider">|</div>
                   <a className="logout" onClick={logout} href="/">log out</a>
                 </div>
