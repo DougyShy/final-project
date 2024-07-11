@@ -10,12 +10,12 @@ import Cart from '../components/Cart';
 
 import { QUERY_BOOKS, QUERY_USER } from '../components/utils/queries';
 
-console.log("LOGGED IN: " + Auth.loggedIn());
+//console.log("LOGGED IN: " + Auth.loggedIn());
 
 const username = Auth.loggedIn() ? Auth.getProfile().data.username : ''; 
 
 if(!username) {
-  console.log("Username is empty");
+  //console.log("Username is empty");
 }
 
 const Home = () => {
@@ -27,16 +27,16 @@ const Home = () => {
   const books = booksData?.books || []; 
   const userInfo = userData?.user || [];
     
-  console.log(books);
-  console.log(userInfo);
+  //console.log(books);
+  //console.log(userInfo);
   
-  console.log("USERNAME: " + username);
+  //console.log("USERNAME: " + username);
 
   const user = userData?.user || [];
-  console.log("USER INFO: " + user.cart)
+  //console.log("USER INFO: " + user.cart)
 
   if (user) {
-    console.log(user);
+    //console.log(user);
   };
  
   return (

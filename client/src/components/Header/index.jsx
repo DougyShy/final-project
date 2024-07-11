@@ -26,7 +26,7 @@ const Header = () => {
   });
 
   if (data) {
-    console.log("USER DATA HERE: " + data);
+    //console.log("USER DATA HERE: " + data);
   };
 
   return (

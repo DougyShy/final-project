@@ -66,7 +66,7 @@ const resolvers = {
         // Save the updated user document
         await user.save();
     
-        console.log('Book added to cart:', book);
+        //console.log('Book added to cart:', book);
         return book;
       } catch (error) {
         console.error('Error adding book to cart:', error);

@@ -15,13 +15,13 @@ import {
 } from 'semantic-ui-react'
 
 const Cart = ( {cart} ) => {
-  if (!cart) {
-    return <h3>Nothing in cart</h3>
-  }
+  if (cart === undefined) {
+    return <h3>Login to start a cart</h3>
+  } 
 
 const booksInCart = [];
 
-//cart.map((id) => {console.log(id)});
+//cart.map((id) => {//console.log(id)});
 
 /*const { cartLoading, cartData } = useQuery(QUERY_BOOKS_BY_IDS, {
   variables: { ids: cart }
@@ -32,15 +32,15 @@ const { loading, data } = useQuery(QUERY_BOOK, {
 });
 
   if(data) {
-    console.log("DATA HERE:" + data.book.author);
+    //console.log("DATA HERE:" + data.book.author);
   } else {
-    console.log("NO DATA PRESENT FOR CART");
+    //console.log("NO DATA PRESENT FOR CART");
   }
     
   return (
     <div>
       <div>
-        <h1>Shopping Cart</h1>        
+        <h1>Shopping Cart {cart.length==0? '(empty)' : '' }</h1>        
       </div>
       <ItemGroup relaxed>
       {cart &&
