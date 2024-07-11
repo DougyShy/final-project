@@ -44,7 +44,6 @@ const Home = () => {
       <Grid celled='internally'>
         <GridRow>
           <GridColumn width={3}>
-            <Image src='https://react.semantic-ui.com/images/wireframe/image.png' />
             <CategoryList />
           </GridColumn>
           <GridColumn width={10}>
@@ -54,7 +53,6 @@ const Home = () => {
 
           </GridColumn>
           <GridColumn width={3}>
-            <Image src='https://react.semantic-ui.com/images/wireframe/image.png' />
             <Cart 
               cart={user.cart}
             />

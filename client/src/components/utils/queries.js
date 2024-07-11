@@ -53,11 +53,12 @@ export const QUERY_BOOKS = gql`
 `;
 
 export const QUERY_BOOKS_BY_IDS = gql`
-  query QueryBooks($ids: [ID!]!) {
+  query getBooksByID($ids: [ID!]!) {
     getBooksByIds(ids: $ids) {
       _id
       title
       author
+      price
     }
   }
 `;

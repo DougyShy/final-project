@@ -9,7 +9,7 @@ const BookList = ( {books} ) => {
 
   return (
     <div>
-      <CardGroup itemsPerRow={6}>
+      <CardGroup itemsPerRow={4}>
       {books &&
         books.map((currentBook) => (
           <div key={currentBook._id}>

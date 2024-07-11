@@ -1,8 +1,10 @@
 import { QUERY_BOOK, QUERY_BOOKS_BY_IDS } from '../utils/queries';
+import Auth from '../utils/auth';
 
 import { useQuery } from '@apollo/client';
 
 import {
+  ItemMeta,
   ItemImage,
   ItemHeader,
   ItemGroup,
@@ -10,49 +12,69 @@ import {
   ItemDescription,
   ItemContent,
   Button,
+  Icon,
   Image,
   Item,
+  Label,
 } from 'semantic-ui-react'
 
 const Cart = ( {cart} ) => {
-  if (cart === undefined) {
-    return <h3>Login to start a cart</h3>
-  } 
 
-const booksInCart = [];
+  const booksInCart = [];
+  let username = '';
 
-//cart.map((id) => {//console.log(id)});
-
-/*const { cartLoading, cartData } = useQuery(QUERY_BOOKS_BY_IDS, {
-  variables: { ids: cart }
-});*/
-
-const { loading, data } = useQuery(QUERY_BOOK, {
-  variables: { id: cart[0] }
-});
-
-  if(data) {
-    //console.log("DATA HERE:" + data.book.author);
+  if (Auth.loggedIn()) {
+    username = Auth.getProfile().data.username;
   } else {
-    //console.log("NO DATA PRESENT FOR CART");
-  }
-    
-  return (
-    <div>
+    return (
       <div>
-        <h1>Shopping Cart {cart.length==0? '(empty)' : '' }</h1>        
+        <h1>Cart</h1>
+        <div>Log in to start cart</div>
       </div>
-      <ItemGroup relaxed>
-      {cart &&
-        cart.map((currentItem) => (
-          <div key={currentItem._id}>
-            {currentItem}
-          </div>
-        ))} 
-      </ItemGroup>
-    </div>
+    )
+  }
+    console.log("CART HERE:" + cart);
+    if(cart) {
+      cart.map((id) => {
+        const { loading, data } = useQuery(QUERY_BOOK, {
+          variables: { id }
+        });
+        booksInCart.push(data);
+      });
+    };  
+  
+  //console.log("DATA HERE:" + data);
+  //booksInCart.push(data);
+ 
+  console.log("BOOKS IN CART LENGTH:" + booksInCart.length);
+  //booksInCart.map((book) => {console.log("BOOK HERE:" + book.book.title)});
 
-  );
+  if (booksInCart !== undefined) {
+    return (
+      <div>
+        <ItemGroup divided>
+        {booksInCart &&
+          booksInCart.map((book) => (
+            <Item>
+              <ItemImage src='https://react.semantic-ui.com/images/wireframe/image.png' size='tiny'/>
+
+              <ItemContent>
+                <ItemHeader as='a'>BOOK STUFF HERE</ItemHeader>
+                <ItemDescription>ITEM STUFF</ItemDescription>
+                <ItemExtra>
+                  <Button floated='right' color='red'>
+                    Remove Item
+                    <Icon name='right chevron' />
+                  </Button>
+                </ItemExtra>
+              </ItemContent>
+            </Item>
+          ))}
+        </ItemGroup>
+      </div>
+
+    );
+  }
 
 };
 
