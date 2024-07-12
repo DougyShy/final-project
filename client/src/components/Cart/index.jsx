@@ -17,6 +17,7 @@ import {
   Item,
   Label,
 } from 'semantic-ui-react'
+import BookCard from '../BookCard';
 
 const Cart = ( {cart} ) => {
 
@@ -33,49 +34,52 @@ const Cart = ( {cart} ) => {
       </div>
     )
   }
-    console.log("CART HERE:" + cart);
-    if(cart) {
-      cart.map((id) => {
-        const { loading, data } = useQuery(QUERY_BOOK, {
-          variables: { id }
-        });
-        booksInCart.push(data);
+
+  console.log("CART HERE:" + cart);
+  if(cart) {
+    cart.map((id) => {
+      const { loading, data } = useQuery(QUERY_BOOK, {
+        variables: { id }
       });
-    };  
-  
-  //console.log("DATA HERE:" + data);
-  //booksInCart.push(data);
+      if(data) {
+        console.log("PRINTING DATA HERE TO PUSH:" + data);
+        booksInCart.push(data);
+      }
+    });
+  };    
  
   console.log("BOOKS IN CART LENGTH:" + booksInCart.length);
-  //booksInCart.map((book) => {console.log("BOOK HERE:" + book.book.title)});
+  console.log("BOOKS IN CART:" + booksInCart.length);
+  console.log(booksInCart.length);
+    
+    if (booksInCart.length) { 
+      console.log("BOOKS IN CART RIGHT BEFORE:" + booksInCart); 
+      return (
+        <div>
+          <ItemGroup divided>
+          {booksInCart.length > 0 &&
+            booksInCart.map((book) => (
+              <Item>
+                <ItemImage src={book.book.img_URL} size='mini'/>
 
-  if (booksInCart !== undefined) {
-    return (
-      <div>
-        <ItemGroup divided>
-        {booksInCart &&
-          booksInCart.map((book) => (
-            <Item>
-              <ItemImage src='https://react.semantic-ui.com/images/wireframe/image.png' size='tiny'/>
+                <ItemContent>
+                  <ItemHeader as='a'>{book.book.title}</ItemHeader>
+                  <ItemDescription>{book.book.author}</ItemDescription>
+                  <ItemExtra>$ {book.book.price}</ItemExtra>
+                  <ItemExtra>
+                    <Button floated='right' color='red'>
+                      Remove Item
+                      <Icon name='right chevron' />
+                    </Button>
+                  </ItemExtra>
+                </ItemContent>
+              </Item>
+            ))}
+          </ItemGroup>
+        </div>
 
-              <ItemContent>
-                <ItemHeader as='a'>BOOK STUFF HERE</ItemHeader>
-                <ItemDescription>ITEM STUFF</ItemDescription>
-                <ItemExtra>
-                  <Button floated='right' color='red'>
-                    Remove Item
-                    <Icon name='right chevron' />
-                  </Button>
-                </ItemExtra>
-              </ItemContent>
-            </Item>
-          ))}
-        </ItemGroup>
-      </div>
-
-    );
-  }
-
-};
+      );
+    }
+  };
 
 export default Cart;

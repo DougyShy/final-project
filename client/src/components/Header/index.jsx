@@ -25,7 +25,7 @@ const Header = () => {
     const { loading, data } = useQuery(QUERY_USER, {
       variables: { username }
     });
-    cartCount = data.user.cart.length;
+    cartCount = (data === undefined) ? 0 : data.user.cart.length;
   }
 
   return (
@@ -41,12 +41,12 @@ const Header = () => {
         {Auth.loggedIn() ? (
           <>
             <GridColumn width={4} textAlign={'left'}>
-              <div className="aligh-content-right">
+              <div className="align-content-right">
                 Welcome, {Auth.getProfile().data.username}!!
               </div>
             </GridColumn>
             <GridColumn width={4} textAlign={'right'}>
-              <div className="aligh-content-right">
+              <div className="align-content-right">
                 <div className="ui breadcrumb">
                   <a className="cart" href="/cart">cart({cartCount})</a>
                   <div className="divider">|</div>
