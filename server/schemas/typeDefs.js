@@ -28,12 +28,14 @@ const typeDefs = `
     user(username: String!): User
     books: [Book]
     book(_id: ID!): Book
+    getBooksByIds(_id: [ID!]!): [Book]
   }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
     addBookToCart(username: String!, bookID: ID!): Book
+    removeBookFromCart(username: String!, bookID: ID!): Book
   }
 `;
 

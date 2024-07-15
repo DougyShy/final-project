@@ -6,7 +6,7 @@
     "year": 1949,
     "img_URL": "/images/1984.png",
     "rating":5,
-    "price": 9.99
+    "price": 19.49
   },
   {
     "title": "Life of Pi",
@@ -15,7 +15,7 @@
     "year": 2001,
     "img_URL": "/images/Life-of-Pi.png",
     "rating":5,
-    "price": 9.99
+    "price": 20.01
   },
   {
     "title": "To Kill a Mockingbird",
@@ -24,7 +24,7 @@
     "year": 1960,
     "img_URL": "/images/to-kill-a-mockingbird.png",
     "rating":5,
-    "price": 9.99
+    "price": 19.61
   },
   {
     "title": "Sense and Sensibility",
@@ -33,7 +33,7 @@
     "year": 1811,
     "img_URL": "/images/sense-and-sensibility.png",
     "rating":5,
-    "price": 9.99
+    "price": 18.11
   },
   {
     "title": "The Catcher in the Rye",
@@ -42,7 +42,7 @@
     "year": 1951,
     "img_URL": "/images/the-catcher-in-the-rye.png",
     "rating":5,
-    "price": 9.99
+    "price": 9.51
   },
   {
     "title": "Great Expectations",
@@ -51,7 +51,7 @@
     "year": 1861,
     "img_URL": "/images/great-expectations.png",
     "rating":5,
-    "price": 9.99
+    "price": 8.61
   },
   {
     "title": "Odyssey",
@@ -60,7 +60,7 @@
     "year": 1614,
     "img_URL": "/images/odyssey.png",
     "rating":5,
-    "price": 9.99
+    "price": 16.14
   },
   {
     "title": "Pride and Predjudice",
@@ -69,7 +69,7 @@
     "year": 1813,
     "img_URL": "/images/pride-and-predjudice.png",
     "rating":5,
-    "price": 9.99
+    "price": 8.97
   },
   {
     "title": "Little Women",
@@ -78,7 +78,7 @@
     "year": 1868,
     "img_URL": "/images/little-women.png",
     "rating":5,
-    "price": 9.99
+    "price": 5.68
   },
   {
     "title": "Fahrenheit 451",

@@ -13,7 +13,7 @@ db.once('open', async () => {
   await User.create(userData);
   await Book.create(bookData);
 
-  console.log('Users seeded!');
-  console.log('Books seeded!');
+  //console.log('Users seeded!');
+  //console.log('Books seeded!');
   process.exit(0);
 });

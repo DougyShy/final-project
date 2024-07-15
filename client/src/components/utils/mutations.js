@@ -32,3 +32,12 @@ export const ADD_BOOK_TO_CART = gql`
     }
   }
 `;
+
+export const REMOVE_BOOK_FROM_CART = gql`
+  mutation removeBookFromCart($username: String!, $bookID: ID!) {
+    removeBookFromCart(username: $username, bookID: $bookID) {
+      _id
+      title
+    }
+  }
+`;

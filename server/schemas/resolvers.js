@@ -12,6 +12,13 @@ const resolvers = {
     books: async () => {
       return Book.find();
     },
+    book: async (parent, { _id }) => {
+      return Book.findOne({ _id });
+    },
+    getBooksByIds: async (parent, args, context, info) => {
+      const { ids } = args;
+      return (await Book.find()).filter(book => ids.includes(book._id));
+    }
   },
   
   Mutation: {
@@ -59,13 +66,47 @@ const resolvers = {
         // Save the updated user document
         await user.save();
     
-        console.log('Book added to cart:', book);
+        //console.log('Book added to cart:', book);
         return book;
       } catch (error) {
         console.error('Error adding book to cart:', error);
         throw error;
       }
-    }
+    },
+    removeBookFromCart: async (parent, {username, bookID }) => {
+      try {
+        // Find the user by their username
+        const user = await User.findOne({ username });
+    
+        if (!user) {
+          throw new Error('User not found');
+        }
+    
+        // Find the book by its ID to ensure it exists
+        const book = await Book.findById(bookID);
+    
+        if (!book) {
+          throw new Error('Book not found');
+        }
+    
+        // Find the first occurence and remove
+        const bookIndex = user.cart.findIndex(item => item == bookID);
+        console.log("BOOK ID HERE:" + bookID);
+        console.log("BOOK INDEX HERE:" + bookIndex);
+        if (bookIndex > -1) {
+          user.cart.splice(bookIndex, 1);
+        }  
+    
+        // Save the updated user document
+        await user.save();
+    
+        //console.log('Book removed from cart:', book);
+        return book;
+      } catch (error) {
+        console.error('Error adding book to cart:', error);
+        throw error;
+      }
+    },
   }
 };
 

@@ -8,6 +8,7 @@ import React from 'react'
 import 'semantic-ui-css/semantic.min.css'
 
 import { QUERY_USER } from '../utils/queries';
+import auth from '../utils/auth';
 
 const Header = () => {
   const logout = (event) => {
@@ -16,18 +17,16 @@ const Header = () => {
   }
 
   let username = '';
+  let cartCount = 0;
 
   if (Auth.loggedIn()) {
     username = Auth.getProfile().data.username;
+    console.log("USERNAME LOGGED IN:" + username)
+    const { loading, data } = useQuery(QUERY_USER, {
+      variables: { username }
+    });
+    cartCount = (data === undefined) ? 0 : data.user.cart.length;
   }
-
-  const { loading, data } = useQuery(QUERY_USER, {
-    variables: { username }
-  });
-
-  /*if (data) {
-    console.log(data.user.cart.length);
-  };*/
 
   return (
     <Grid columns={2} padded={false}>
@@ -42,14 +41,14 @@ const Header = () => {
         {Auth.loggedIn() ? (
           <>
             <GridColumn width={4} textAlign={'left'}>
-              <div className="aligh-content-right">
+              <div className="align-content-right">
                 Welcome, {Auth.getProfile().data.username}!!
               </div>
             </GridColumn>
             <GridColumn width={4} textAlign={'right'}>
-              <div className="aligh-content-right">
+              <div className="align-content-right">
                 <div className="ui breadcrumb">
-                  <a className="cart" href="/cart">cart({data?data.user.cart.length:0})</a>
+                  <a className="cart" href="/cart">cart({cartCount})</a>
                   <div className="divider">|</div>
                   <a className="logout" onClick={logout} href="/">log out</a>
                 </div>
