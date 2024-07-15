@@ -29,6 +29,7 @@ Once the application is set up and running, you can:
 - React
 - MongoDB
 - Render
+- Semantic UI
 
 ## License
 This project is licensed under the MIT License. See the LICENSE file for more details.
