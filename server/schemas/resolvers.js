@@ -72,7 +72,41 @@ const resolvers = {
         console.error('Error adding book to cart:', error);
         throw error;
       }
-    }
+    },
+    removeBookFromCart: async (parent, {username, bookID }) => {
+      try {
+        // Find the user by their username
+        const user = await User.findOne({ username });
+    
+        if (!user) {
+          throw new Error('User not found');
+        }
+    
+        // Find the book by its ID to ensure it exists
+        const book = await Book.findById(bookID);
+    
+        if (!book) {
+          throw new Error('Book not found');
+        }
+    
+        // Find the first occurence and remove
+        const bookIndex = user.cart.findIndex(item => item == bookID);
+        console.log("BOOK ID HERE:" + bookID);
+        console.log("BOOK INDEX HERE:" + bookIndex);
+        if (bookIndex > -1) {
+          user.cart.splice(bookIndex, 1);
+        }  
+    
+        // Save the updated user document
+        await user.save();
+    
+        //console.log('Book removed from cart:', book);
+        return book;
+      } catch (error) {
+        console.error('Error adding book to cart:', error);
+        throw error;
+      }
+    },
   }
 };
 

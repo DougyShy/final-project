@@ -1,4 +1,6 @@
-import { QUERY_BOOK, QUERY_BOOKS_BY_IDS } from '../utils/queries';
+import { QUERY_BOOK, QUERY_BOOKS_BY_IDS,  } from '../utils/queries';
+import { REMOVE_BOOK_FROM_CART, ADD_BOOK_TO_CART } from '../utils/mutations';
+import { useMutation } from '@apollo/client';
 import Auth from '../utils/auth';
 
 import { useQuery } from '@apollo/client';
@@ -17,11 +19,15 @@ import {
   Item,
   Label,
 } from 'semantic-ui-react'
-import BookCard from '../BookCard';
 
 const Cart = ( {cart} ) => {
 
+  if (!cart) {
+    return <h3>No Cart Found</h3>;
+  }
+
   const booksInCart = [];
+  const [removeBookFromCart, { data }] = useMutation(REMOVE_BOOK_FROM_CART);
   let username = '';
 
   if (Auth.loggedIn()) {
@@ -30,11 +36,12 @@ const Cart = ( {cart} ) => {
     return (
       <div>
         <h1>Cart</h1>
-        <div>Log in to start cart</div>
+        <div ><a href="/login">Log in</a> or <a href="/signup"> Sign Up </a>to view cart</div>
       </div>
     )
   }
 
+  
   console.log("CART HERE:" + cart);
   if(cart) {
     cart.map((id) => {
@@ -47,13 +54,29 @@ const Cart = ( {cart} ) => {
       }
     });
   };    
+
+  const handleClick = async (event, bookID) => {
+    event.preventDefault();
+    console.log("TRYING TO REMOVE BOOK HERE");
+    try {
+      if (Auth.loggedIn) {
+        const username = Auth.getProfile().data.username;
+        //console.log(Auth.getProfile().data.username + book._id);
+      }
+      const { data } = await removeBookFromCart({
+        variables: { username, bookID },
+      });
+    } catch (err) {
+        console.log(err);
+    }
+  }
  
-  console.log("BOOKS IN CART LENGTH:" + booksInCart.length);
+  /*console.log("BOOKS IN CART LENGTH:" + booksInCart.length);
   console.log("BOOKS IN CART:" + booksInCart.length);
-  console.log(booksInCart.length);
+  console.log(booksInCart.length);*/
     
     if (booksInCart.length) { 
-      console.log("BOOKS IN CART RIGHT BEFORE:" + booksInCart); 
+      // console.log("BOOKS IN CART RIGHT BEFORE:" + booksInCart); 
       return (
         <div>
           <ItemGroup divided>
@@ -67,7 +90,7 @@ const Cart = ( {cart} ) => {
                   <ItemDescription>{book.book.author}</ItemDescription>
                   <ItemExtra>$ {book.book.price}</ItemExtra>
                   <ItemExtra>
-                    <Button floated='right' color='red'>
+                    <Button key={book.book._id}floated='right' color='red' onClick={(event) => handleClick(event, book.book._id)}>
                       Remove Item
                       <Icon name='right chevron' />
                     </Button>
