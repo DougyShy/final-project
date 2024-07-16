@@ -66,6 +66,7 @@ const Cart = ( {cart} ) => {
       const { data } = await removeBookFromCart({
         variables: { username, bookID },
       });
+      alert("Book removed from cart. *** Page reset currently necessary ***");
     } catch (err) {
         console.log(err);
     }
