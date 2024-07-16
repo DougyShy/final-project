@@ -34,6 +34,7 @@ const BookCard = ( {book} ) => {
           variables: { username, bookID },
         });
         window.location.reload();
+
       }
     } catch (err) {
       console.log(err);
