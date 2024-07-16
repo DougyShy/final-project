@@ -61,19 +61,15 @@ const Cart = ( {cart} ) => {
     try {
       if (Auth.loggedIn) {
         const username = Auth.getProfile().data.username;
-        //console.log(Auth.getProfile().data.username + book._id);
       }
       const { data } = await removeBookFromCart({
         variables: { username, bookID },
       });
+      window.location.reload();
     } catch (err) {
         console.log(err);
     }
   }
- 
-  /*console.log("BOOKS IN CART LENGTH:" + booksInCart.length);
-  console.log("BOOKS IN CART:" + booksInCart.length);
-  console.log(booksInCart.length);*/
     
     if (booksInCart.length) { 
       // console.log("BOOKS IN CART RIGHT BEFORE:" + booksInCart); 

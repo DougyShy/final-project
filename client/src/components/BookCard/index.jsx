@@ -30,14 +30,13 @@ const BookCard = ( {book} ) => {
     try {
       if (Auth.loggedIn) {
         const username = Auth.getProfile().data.username;
-        //console.log(Auth.getProfile().data.username + book._id);
         const { data } = await addBookToCart({
-        variables: { username, bookID },
-      });
-
+          variables: { username, bookID },
+        });
+        window.location.reload();
       }
     } catch (err) {
-      //console.log(err);
+      console.log(err);
     }
   }
 
