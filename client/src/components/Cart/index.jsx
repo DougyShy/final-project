@@ -27,6 +27,7 @@ const Cart = ( {cart} ) => {
   }
 
   const booksInCart = [];
+  let cartTotal = 0.00;
   const [removeBookFromCart, { data }] = useMutation(REMOVE_BOOK_FROM_CART);
   let username = '';
 
@@ -71,8 +72,9 @@ const Cart = ( {cart} ) => {
     }
   }
     
+  const totalPrice = booksInCart.reduce((total, book) => total + book.book.price, 0)
+
     if (booksInCart.length) { 
-      // console.log("BOOKS IN CART RIGHT BEFORE:" + booksInCart); 
       return (
         <div>
           <ItemGroup divided>
@@ -92,9 +94,11 @@ const Cart = ( {cart} ) => {
                     </Button>
                   </ItemExtra>
                 </ItemContent>
+                
               </Item>
             ))}
           </ItemGroup>
+          <div>Current Cart Total: $ {totalPrice.toFixed(2)}</div>
         </div>
 
       );
